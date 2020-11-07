@@ -1,0 +1,19 @@
+#mainPage {
+    height: 100vh;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#navigate_to_container, #show_filter{
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+}
+
+#navigate_to_container a {
+    text-decoration: none;
+} 

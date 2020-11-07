@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temaoppgave 3</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/test-style.css">
+    <link rel="stylesheet" href="./styles/style-mainpage.css">
+    <script src="scripts/script.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <div id="treningsplan"><p></div>
+    </header>
+    <main>
+        <section id="mainPage">
+            <a href="#container"><button id="navigate_to_container">Sett sammen et treningsprogram</button></a>
+            <button id="show_filter">Få øvelser tilpasset ditt nivå</button>
+            <form>
+                <h2 class="mainPage-h2">Hvor tungt vil du trene?</h2>
+                <input type="radio" id="Lav" name="impact" value="Intensitet">
+                <label for="Lav">Lett</label><br>
+                <input type="radio" id="Medium" name="impact" value="Intensitet">
+                <label for="Medium">Ganske tungt</label><br>
+                <input type="radio" id="Høy" name="impact" value="Intensitet">
+                <label for="Høy">Skikkelig tungt</label><br>
+                <h2 class="mainPage-h2">Hva ønsker du å trene på?</h2>
+                <input type="radio" id="Kondisjon" name="effekt" value="Treningstype">
+                <label for="effekt">Kondisjon</label><br>
+                <input type="radio" id="Styrke" name="effekt" value="Treningstype">
+                <label for="effekt">Styrke</label><br>
+                <input type="radio" id="Mobilitet" name="effekt" value="Treningstype">
+                <label for="effekt">Mobilitet</label><br>
+                <button id="generer">Test 1</button>
+            </form>
+        </section>
+        <section id="container"></section>
+    </main>
+    
+    
+</body>
+</html>
