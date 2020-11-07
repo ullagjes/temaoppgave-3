@@ -3,7 +3,7 @@ export let exercises = [
         bilde: "./img/exercises/biking.jpg",
         alt: "",
         impact: "Medium",
-        effekt: ["Kondisjon", "Styrke"],     
+        effekt: ["Styrke", "Kondisjon"],     
         navn: "Sykkeltur",
         Beskrivelse: ["Sykkelturer er en super måte å få opp kondisjonen og samtidig bli sterkere i beina"],
         instrukser: [`<li>Hold et rolig tempo i starten</li> <li></li> <li></li> <li></li>`]

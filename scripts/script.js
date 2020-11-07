@@ -99,119 +99,60 @@ impact3.addEventListener("click", filtrere);
 
 function filtrere(event){
     
-    
-
     let mittFilter = event.target.id;
-    //console.log(mittFilter)
-
     let filterLav = exercises.filter(el => el.impact.includes(mittFilter))
     let filterMedium = exercises.filter(el => el.impact.includes(mittFilter))
     let filterHigh = exercises.filter(el => el.impact.includes(mittFilter))
     
     if(impact1.checked == true) {
-        newExercises = filterLav;
-        
+        newExercises = filterLav; 
     }
     if(impact2.checked == true) {
         newExercises = filterMedium;
-        //console.log(newExercises)
     }
     if(impact3.checked == true) {
         newExercises = filterHigh;
-        //console.log(newExercises)
     }
-    
-    console.log(newExercises)
 
     effekt1.addEventListener("click", filtrer2)
     effekt2.addEventListener("click", filtrer2)
     effekt3.addEventListener("click", filtrer2)
+    effekt1.addEventListener("click", visFiltrerte)
+    effekt2.addEventListener("click", visFiltrerte)
+    effekt3.addEventListener("click", visFiltrerte)
 
     function filtrer2(event){
-        let mittFilter2 = event.target.id;
         
+        let mittFilter2 = event.target.id;
+
+        let filterStyrke = newExercises.filter((el) => {
+            return el.effekt.includes(mittFilter2)}
+        )
 
         let filterKondis = newExercises.filter((el) => {
-            for(let i = 0; i < newExercises.length; i++){
-            return(el.effekt[i].includes(mittFilter2))
-        }
-        })
-
-        let filterStyrke= newExercises.filter((el) => {
-            for(let i = 0; i < newExercises.length; i++){
-            return(el.effekt[i].includes(mittFilter2))
-        }
-        })
+            return el.effekt.includes(mittFilter2)}
+        )
 
         let filterMobilitet = newExercises.filter((el) => {
-            for(let i = 0; i < newExercises.length; i++){
-            return(el.effekt[i].includes(mittFilter2))
-        }
-        })
+            return el.effekt.includes(mittFilter2)}
+        )
         
         if(effekt1.checked == true) {
             newExercises = filterKondis;
-            console.log(newExercises)
+            //console.log(newExercises)
         }
         if(effekt2.checked == true) {
             newExercises = filterStyrke;
-            console.log(newExercises)
+            //console.log(newExercises)
         }
         if(effekt3.checked == true) {
             newExercises = filterMobilitet;
-            console.log(newExercises)
+            //console.log(newExercises)
         }
-        
-
+    console.log(newExercises)
     }
-
+    
 }
-
-
-
-/*function filtrere1() {
-    
-    let filterLav = exercises.filter(el => el.impact.includes("Lav"));
-    let filterMedium = exercises.filter(el => el.impact.includes("Medium"));
-    let filterHigh = exercises.filter(el => el.impact.includes("Høy"))
-
-
-    if(impact1.checked == true) {
-        newExercises = filterLav;
-        for(let i = 0; i < filterLav.length; i++) {
-           
-    
-            let filterEffekt = filterLav[i].effekt
-
-            let filterTest = filterLav[i].effekt.includes("Kondisjon")
-            console.log(filterTest);
-
-            /*if(filterTest == true && effekt1.checked == true){
-                filterLav.filter(el => el.includes("Kondisjon"))
-                
-                console.log(filterLav)
-            }
-            
-        }
-    }
-    
-    if(impact2.checked == true) {
-        newExercises = filterMedium;
-    }
-        
-    if(impact3.checked == true) {
-        newExercises = filterHigh;
-    } 
-    visFiltrerte()
-}*/
-
-//genererBtn.addEventListener("click", filtrere1)
-
-/*let filterKondis = newExercises.filter(el => el.effekt.includes("Kondisjon"))
-    let filterStyrke = newExercises.filter(el => el.effekt.includes("Styrke"))
-    let filterMobilitet = newExercises.filter(el => el.effekt.includes("Mobilitet"))
-
-    console.log(filterKondis)*/
 
 
 function visFiltrerte() {
