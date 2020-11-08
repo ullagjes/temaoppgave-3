@@ -5,6 +5,7 @@ import {exercises} from "./exercises.js"
 let settSammenProgram = document.querySelector("#navigate_to_container");
 let container = document.querySelector("#container");
 
+
 let html = ``;    
     
 
@@ -13,73 +14,117 @@ function forside() {
     exercises.forEach(el => {
 
     html += `
-    <article class="container_trening">
+    <article>
+        <h2>${el.navn}</h2>
         <img class="container_trening_img" src="${el.bilde}">
-        <h2 class="container_trening_h2">${el.navn}</h2>
+        
+        <h3 class="beskrivelse">${el.beskrivelse}</h3>
         <ul class="container_trening_ul">${el.instrukser}
         </ul>
-        <p>Vanskelighetsgrad: ${el.impact}</p>
-        <p>Treningstype: ${el.effekt}</p>
-        <label for="quantity" class="container_label">Hvor mange minutter skal økten vare?</label><br>
-        <input type="number" id="quantity">
-        <button class="container_trening_button_1">Legg til treningsplan</button>
+            <label for="quantity" class="container_label">Hvor mange minutter skal økten vare?</label>
+            <input type="number" class="quantity">
+            <button class="container_trening_button1">Legg til treningsplan</button>
+            <button class="container_trening_button">Les mer om øvelsen</button>
         
-        <button class="container_trening_button">Les mer om øvelsen</button>
+        <p class="vanskelighetsgrad">Vanskelighetsgrad: ${el.impact}</p>
+        <p class="treningstype">Treningstype: ${el.effekt}</p>
+       
     </article>
             `;
     
-    settSammenProgram = false;
 });
-    
+
 container.innerHTML = html;
+let visMerKnapper = document.querySelectorAll(".container_trening_button")
+for(let visMerKnapp of visMerKnapper){
+    visMerKnapp.addEventListener("click", utvidBilde)
+}
+let addToPlanBtns = document.querySelectorAll(".container_trening_button1");
+for(let addToPlanBtn of addToPlanBtns){
+    addToPlanBtn.addEventListener("click", addToPlan)
+}
     
 }
 
 settSammenProgram.addEventListener("click", forside)
 
 
-//KLIKKBARHET
+//____________________________________________________________KLIKKBARHET
 
-let bilder = document.querySelectorAll(".container_trening_img");
+//SE NÆRMRERE PÅ EN ØVELSE
 
-for(const bilde of bilder) {
-    //bilde.addEventListener("click", utvidBilde)
-    bilde.addEventListener("click", utvidBildeTest)
-}
 
-let bildeErTrykket = false;
 
-function utvidBildeTest (event) {
-    let bildeTrykket = event.target;
-    let innholdTrykket = bildeTrykket.parentElement;
+let visMerErTrykket = false;
+
+function utvidBilde (event) {
     
-    if(bildeErTrykket) {
+    let knappTrykket = event.target;
+    let innholdTrykket = knappTrykket.parentElement;
+
+    
+    if(visMerErTrykket) {
         innholdTrykket.classList.remove("utvidet");
     } else {
         innholdTrykket.classList.add("utvidet");
     }
 
-    bildeErTrykket = !bildeErTrykket;
-    
-    
+    visMerErTrykket = !visMerErTrykket;
+
 }
 
-/*function utvidBilde (event) {
-    
-    let bildeTrykket = event.target;
-    let innholdTrykket = bildeTrykket.parentElement;
-    let nyHTML = innholdTrykket.innerHTML;
-    
-    if(bildeErTrykket) {
-        utvid.innerHTML = ``
-    } else {
-        utvid.innerHTML += nyHTML;
-        innholdTrykket.classList.add("utvidet")
-    }
+//VIS TRENINGSPLAN
 
-    bildeErTrykket = !bildeErTrykket;
+let planKnapp = document.querySelector("#treningsplan");
+
+let planErTrykket = false;
+
+function visTreningsplan() {
+
+    if(planErTrykket) {
+        planKnapp.style.width = "3em"
+        planKnapp.style.height = "3em"
         
-}*/
+    } else {
+        planKnapp.style.width = "10em"
+    }
+    planErTrykket = !planErTrykket;
+}
+
+planKnapp.addEventListener("click", visTreningsplan)
+
+//LEGG TIL I TRENINGSPLAN
+
+let myPlan = []
+
+function addToPlan (event) {
+
+    let pressedBtn = event.target;
+    let pressedBtnContaner = pressedBtn.parentElement;
+    let pressedBtnName = pressedBtnContaner.querySelector("h2").innerText;
+   
+    
+    let myFilteredActivities = exercises.filter((el) => {
+        return el.navn.includes(pressedBtnName)} )
+   
+    
+    myPlan.push(myFilteredActivities)
+    
+    
+    let html = ``;
+    for(let i = 0; i < myPlan.length; i++){
+        myPlan[i].forEach(el => {
+        html+=`
+        <div><p>${el.navn}</p></div>        
+        `
+        }) 
+    }
+    
+    planKnapp.innerHTML = html;
+}
+
+
+
 
 //FILTRERING 
 
@@ -89,7 +134,6 @@ let impact3 = document.querySelector("#Høy")
 let effekt1 = document.querySelector("#Kondisjon")
 let effekt2 = document.querySelector("#Styrke")
 let effekt3 = document.querySelector("#Mobilitet")
-let genererBtn = document.querySelector("#generer")
 let newExercises = ``;
 
 impact1.addEventListener("click", filtrere);
@@ -180,56 +224,4 @@ function visFiltrerte() {
 }
 
 
-/*function visFiltrerte() {
-    for(let i = 0; i < newExercises.length; i++) {
-        let nyHTML = ``;
-        newExercises[i].forEach(el => {
-
-                nyHTML += `
-                <article class="container_trening">
-                    <img class="container_trening_img" src="${el.bilde}">
-                    <h2 class="container_trening_h2">${el.navn}</h2>
-                    <ul class="container_trening_ul">${el.instrukser}</ul>
-                    <p>Vanskelighetsgrad: ${el.impact}</p>
-                    <p>Treningstype: ${el.effekt}</p>
-                    <label for="quantity" class="container_label">Hvor mange minutter skal økten vare?</label>
-                    <input type="number" id="quantity">
-                    <button class="container_trening_button_1">Legg til treningsplan</button>
-                    
-                    <button class="container_trening_button">Les mer om øvelsen</button>
-                </article>
-                        `;
-           
-                });
-     container.innerHTML = nyHTML;   
-    }*/
-
-
-
-//NOTATER FOR FILTRERING
-
-    /*for(let i = 0; i < newExercises.length; i++) {
-        for(let j = 0; j < newExercises[i].length; j++){
-
-        console.log(newExercises[i][j].effekt)
-    }}*/
-
-//VIS TRENINGSPLAN
-
-let planKnapp = document.querySelector("#treningsplan");
-
-let planErTrykket = false;
-
-function visTreningsplan() {
-
-    if(planErTrykket) {
-        planKnapp.style.width = "3em"
-        planKnapp.style.height = "3em"
-    } else {
-        planKnapp.style.width = "100em"
-    }
-    planErTrykket = !planErTrykket;
-}
-
-planKnapp.addEventListener("click", visTreningsplan)
 

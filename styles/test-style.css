@@ -1,48 +1,118 @@
 
-#container {
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    margin: 5em auto;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: auto(minmax(200px));
-    overflow: hidden;
-    gap: 10px;
-}
+/*ALLE TRENINGSØVELSER*/
 
-#container article{
-    width: 100%;
-    height: 100%;
-    min-width: 300px;
-    padding: .5em;
-    font-size: 1.5rem;
-}
-
-#container img {
-    width: 100%;
-    height: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    /*border-radius: 50%;*/
-    object-fit: cover;
-    transition: .3s;
-    cursor: pointer;
-}
-
-/*#quantity, .container_label, .container_trening_button_1 {
+.quantity, .container_label, .container_trening_button_1, .treningstype, .vanskelighetsgrad, .beskrivelse, ul{
     display: none;
-}*/
+   
+}
 
+h2 {
+    font-size: 2.5rem;
+}
+
+.beskrivelse {
+    top: 0;
+    background-color: white;
+    margin: 0 .5em;
+}
 
 ul {
-    display: none;
-    position: relative;
-    top: -150px;
+    margin: 0 .5em;
+    background-color: honeydew;
 }
 
+/*UTVIDET TRENINGSØVELSE*/
 
+.utvidet {
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    grid-column: span 2;
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+    background-color: green;
+    transition: .5s;
+}
+
+.utvidet button {display: block;}
+
+.utvidet h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.utvidet h3{
+    display: inline;
+    font-size: 2.5rem;    
+    margin: .5em .5em;
+    padding: .5em;
+
+}
+
+.utvidet ul {
+    display: inline;
+    top: 30%;
+    font-size: 1.3em;
+    margin: 0 .6em;
+    padding: .5em;
+    list-style-position: inside;
+    
+}
+
+.utvidet img {
+    display: none;
+}
+
+.utvidet input[type=number]{ 
+    display: block;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: .5em;
+    width: 20%;
+}
+
+.utvidet label{
+    display: block;
+    font-size: 2rem;
+    margin: .5em .5em;
+    text-align: center;
+}
+
+.utvidet button {
+    width: 70%;
+}
+
+@media only screen and (max-width: 450px){
+    
+
+    .utvidet img {
+        display: none;
+    }
+    
+    .utvidet {
+        /*grid-column: 1;*/
+        grid-row: span 1;
+        min-height: 500px;
+    }
+
+    .utvidet article {
+        height: 100%;
+    }
+    
+    .utvidet h3 {
+        margin-top: 1em;;
+    }
+
+    .utvidet ul {
+        margin-top: 1em;;
+    }
+    .utvidet article {
+        height: 100%;
+    }
+}
+
+/*TRENINGSPLAN - BOX */
 
 #treningsplan {
     width: 3em;
@@ -51,24 +121,4 @@ ul {
     font-size: 1.5rem;
     transition: .3s;
     position: fixed;
-}
-
-
-.utvidet {
-    width: 100%;
-    min-width: 300px;
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 2;
-    z-index: 2;
-}
-
-.container_trening_img {
-    position: relative;
-    width: 100%;
-    min-width: 250px;
-}
-
-.utvidet ul {
-    display: block;
-    list-style-position: inside;
 }
