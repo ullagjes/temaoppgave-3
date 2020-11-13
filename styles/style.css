@@ -6,26 +6,105 @@
 
 html {
     font-size: 62.5%;
+    font-family: 'Red Hat Text', sans-serif;
 }
 
 body {
     padding: 1.5em;
     position: relative;
+    background-color: rgb(198, 230, 226);
 }
 
 header {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
     display: flex;
-    justify-content: flex-end;
     z-index: 1;
+    padding: 1.5em 0;
+    justify-content: flex-end;
+}
+
+#headLine {
+    font-size: 3.5rem;
+    width: 50vw;
+    margin-right: auto;
+    margin-left: .5em;
+    padding: .2em;
+}
+
+/*MINUTT-COUNTER FORSIDE VED IKON*/
+
+#myMinutes {
+    background-color: teal;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    height: 3.5em;
+    width: 3.5em;
+    padding: .2em;
+    border-radius: 50%;
+    border: 2px solid black;
+    text-align: center;
+    transition: 1s;
 }
 
 
-#container {
+/*DIV-BOKS INNEHOLDER IKON*/
+#myPlanIcon {
+    align-self: flex-start;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    opacity: 0;
+}
+
+/*CSS FOR SELVE IKONET*/
+.icon {
+    margin-top: 3em;
+    width: 7em;
+    border: 2px solid teal;
+    border-radius: 50%;
+    padding: .3em;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 0px 14px 3px teal;
+    
+}
+
+.icon:hover {
+    border: 2px solid turquoise;
+}
+
+/*ANIMASJNON FOR IKON*/
+
+.iconAnimated {
+    animation: visible 2s ease-in 1s forwards;
+}
+
+
+
+@keyframes visible {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+.iconPulse {
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    from{box-shadow: 0px 0px 14px 3px #000000;}
+    to{box-shadow: 0px 0px 14px 3px rgba(0,0,0,0);}
+}
+
+/*_____________________________________TRENINGSØVELSER-GRID*/
+
+#container { 
     width: 100%;
-    max-width: 1200px;
     height: 100%;
+    max-width: 1250px;
     margin: 5em auto;
     height: auto;
     display: grid;
@@ -35,12 +114,16 @@ header {
     gap: 10px;
 }
 
+/*ØVELSER*/
 #container article{
-    width: 100%;
-    height: 100%;
+    width: 0;
+    height: 0;
     min-width: 200px;
     padding: .5em;
     font-size: 1.5rem;
+    animation: fillIn 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
 }
 
 #container img {
@@ -49,7 +132,6 @@ header {
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
-    transition: .3s;
 }
 
 
@@ -57,4 +139,31 @@ header {
     font-size: 1.5rem;
     padding: .5em;
     margin: .5em auto;
+}
+
+#filter_again {
+    display: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1em;
+    background-color: turquoise;
+    border: none;
+    cursor: pointer;
+}
+
+#filter_again:hover {
+    background-color: teal;
+    color: white;
+}
+
+/*ANIMASJON FOR ØVELSER*/
+@keyframes fillIn {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
 }

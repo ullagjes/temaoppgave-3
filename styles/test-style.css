@@ -7,18 +7,17 @@
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
 }
 
 .beskrivelse {
     top: 0;
-    background-color: white;
     margin: 0 .5em;
 }
 
 ul {
     margin: 0 .5em;
-    background-color: honeydew;
+    background-color: lightseagreen
 }
 
 /*UTVIDET TRENINGSØVELSE*/
@@ -31,8 +30,7 @@ ul {
     display: flex;
     flex-flow: column;
     flex-direction: column;
-    background-color: green;
-    transition: .5s;
+    border: 7px solid teal;
 }
 
 .utvidet button {display: block;}
@@ -83,7 +81,7 @@ ul {
     width: 70%;
 }
 
-@media only screen and (max-width: 450px){
+@media only screen and (max-width: 500px){
     
 
     .utvidet img {
@@ -91,34 +89,25 @@ ul {
     }
     
     .utvidet {
-        /*grid-column: 1;*/
+        grid-column: 1;
         grid-row: span 1;
         min-height: 500px;
+        max-width: 450px;
     }
 
     .utvidet article {
         height: 100%;
+
     }
     
     .utvidet h3 {
-        margin-top: 1em;;
+        margin-top: 1em;
     }
 
     .utvidet ul {
-        margin-top: 1em;;
+        margin-top: 1em;
     }
     .utvidet article {
         height: 100%;
     }
-}
-
-/*TRENINGSPLAN - BOX */
-
-#treningsplan {
-    width: 3em;
-    height: 3em;
-    background-color: blue;
-    font-size: 1.5rem;
-    transition: .3s;
-    position: fixed;
 }

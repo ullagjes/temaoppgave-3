@@ -1,19 +1,312 @@
 #mainPage {
-    height: 100vh;
-    max-height: 600px;
+    height: 70vh;
+    width: 90vw;
+    max-height: 500px;
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     position: relative;
     align-items: center;
+    overflow: hidden;
     justify-content: center;
+    background-color: white;
 }
 
-#navigate_to_container, #show_filter{
-    padding: 1em;
-    margin: 1em;
-    cursor: pointer;
+/*____________________________INTRODUKSJON AV NETTSIDEN*/
+
+#intro {
+    width: 90%;
+    height: 100%;
+    max-height: 90vh;
+    padding-top: 13em;
+    margin: 5em auto;
+    max-width: 1000px;
+    z-index: 0;
 }
+
+
+#intro h1 {
+    font-size: 2.5rem;
+    line-height: 2em;
+    text-align: center;
+    width: 90%
+}
+
+.introBtn {
+    border: 4px solid teal;
+    background-color: white;
+    margin-bottom: 3em;
+    margin-top: 1.5em;
+    margin-left: 8em;
+    font-size: 2.5rem;
+    width: 20em;
+    cursor: pointer;
+    transition: .5s;
+    animation: pulse;
+}
+
+.introBtn:hover {
+    background-color: teal;
+    color: white;
+    width: 21em;
+}
+
+
+/*RESPONSIVITET INTRO*/
+
+@media only screen and (max-width: 950px) {
+    #mainPage {
+        max-height: 400px;
+    }
+    
+    #intro {
+        width: 90%;
+        max-width: 900px;
+    }
+
+    #intro h1 {
+        font-size: 2.3rem;
+        line-height: 1.4em;
+        text-align: left;
+        padding: .5em 0;
+        border-bottom: 2px solid teal;
+    }
+
+    .introBtn {
+        border: none;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 330px){
+    #mainPage {
+        max-height: 100px;
+    }
+    
+}
+
+/*ANIMASJON FOR TEKST*/
+
+
+.introAnimated {
+    animation: disappear 1.5s ease forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 100%;
+        height: 100%;
+    }
+    
+    100% {
+        font-size: 0;
+        opacity: 0%;
+        height: 0%;
+    }
+}
+
+
+/*________________________FORSIDEKNAPPER*/
 
 #navigate_to_container a {
     text-decoration: none;
 } 
+#navigate_to_container, #show_filter{
+    opacity: 0%;
+    font-size: 2rem;
+    max-width: 300px;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+    border: 3px solid teal;
+    background-color:white;
+}
+
+#navigate_to_container:hover{
+    background-color: teal;
+    color: white;;
+}
+
+#show_filter:hover{
+    background-color: teal;
+    color: white;
+}
+
+/*ANIMASJON FOR FORSIDEKNAPPER*/
+
+.btnAnimated {
+    
+    animation: btnAppear 2s ease 1s forwards;
+}
+
+@keyframes btnAppear {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+/*________________________________FILTRE*/
+
+#filter_by_impact {
+    display: none;
+    animation: filterWiden;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#filter_by_effect {
+    display: none;
+    animation: filterWiden;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+label {
+    font-size: 2.5rem;
+    margin: 1em;
+}
+
+/*ANIMASJON FOR FILTER*/
+
+@keyframes filterWiden {
+    0% {
+        display: none;
+        opacity: 0%;
+    }
+
+    100%{
+        display: block;
+        opacity: 100%;
+    }
+}
+
+
+/*_______________________________________TRENINGSPLAN - BOX */
+
+/*ANIMASJON FOR 150 MINUTTER OPPNÅDD*/
+.minutesAcheived {
+    animation: minutesGold 2s ease forwards;
+}
+
+@keyframes minutesGold {
+    0% {
+        background-color: teal;
+        
+    }
+    50%{
+        background-color: gold;
+        width: 4em;
+        height: 4em;
+    }
+
+    100% {
+        background-color: gold;
+        width: 3.5em;
+        height: 3.5em;
+    }
+}
+
+.container_trening_button1{
+    display: none;
+}
+
+/*ANIMASJON FOR NY ØVELSE LAGT TIL*/
+.utvidPlanknapp{
+    animation: expand 1s ease alternate;
+    animation-iteration-count: 1;
+}
+
+@keyframes expand{
+    0%{
+        width: 2em;
+        height: 2em;
+    }
+    50%{
+        width: 2.5em;
+        height: 2.5em;
+    }
+    100%{
+        width: 2em;
+        height: 2em;
+    }
+}
+
+/*BOKS MED INFO OM TRENINGSPLAN, AKTIVERES MED BOOLEAN*/
+#myPlanContainer {
+    background-color: teal;
+    max-height: 500px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    z-index: 1;
+    top: -150vw;
+    width: 40%;
+    padding-bottom: 3.5em;
+}
+
+/*.myPlanAnimated {
+    width: 60vw;
+    height: 40vh;
+    animation: showPlan 2s ease 2s forwards;
+}
+
+@keyframes showPlan {
+    from {top: -150vw;}
+    to {top: 0vh;}
+}
+
+.myPlanAnimated p {
+    font-size: 2rem;
+    padding: 5em;
+    color: white;
+}*/ 
+
+
+
+.planDiv {display: flex;}
+
+.planDiv label {
+    margin: 1em .1em;
+    font-size: 2rem;
+}
+
+.nameOfExercise {
+    display: inline;
+    margin: 1em .5em;
+    font-size: 2rem;
+}
+
+#quantityOfExercise {
+    display: block;
+    font-size: 2rem;
+    margin: 1em .5em;
+    width: 3em;
+    height: 1.3em;
+}
+
+/*RESPONSIVITET FOR TRENINGSPLAN*/
+
+@media only screen and (max-width: 950px) {
+    #myPlanContainer {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    #myPlanContainer {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .icon {
+        width: 4em;
+        margin-left: 1em;
+        justify-self: end;
+    }
+}
