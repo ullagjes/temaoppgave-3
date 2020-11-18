@@ -46,7 +46,6 @@
     width: 20em;
     cursor: pointer;
     transition: .5s;
-    animation: pulse;
 }
 
 /*BUTTONS FOR FILTER CHOICES*/
