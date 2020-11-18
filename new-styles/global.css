@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Red Hat Text', sans-serif;
+}
+
+body {
+    /*padding: 1.5em;*/
+    position: relative;
+    background-color: rgb(198, 230, 226);
+}
+
+header {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 1.5em 0;
+    justify-content: flex-end;
+    background-color: teal;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

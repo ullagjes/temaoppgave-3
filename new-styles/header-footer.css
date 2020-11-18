@@ -1,0 +1,194 @@
+/*====================HEADER=============================*/
+
+/*------------------MAIN TITLE-----------------*/
+
+#header__h1 {
+    font-size: 3.5rem;
+    width: 50vw;
+    margin-right: auto;
+    margin-left: .5em;
+    padding: .2em;
+}
+
+/*--------------ICON AND MINUTE COUNTER-------------*/
+
+#header__div {
+    align-self: flex-start;
+    position: fixed;
+    display: flex;
+    z-index: 1;
+    opacity: 0;
+    margin-right: 2em;
+}
+
+/*ICON STYLE*/
+
+#header__img {
+    margin-top: 3em;
+    width: 7em;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: .3em;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 0px 14px 3px teal;
+}
+
+/*MINUTE COUNTER STYLE*/
+
+#header__p {
+    background-color: teal;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    height: 3.5em;
+    width: 3.5em;
+    padding: .2em;
+    border-radius: 50%;
+    border: 2px solid black;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+#myInnerMinutes {
+    color: white;
+    font-size: 2rem;
+    padding-top: 3em;
+}
+
+
+/*-------------"AKTIVITETSPROGRAM"-CONTAINER-------------*/
+
+#header__div-2 {
+    background-color: teal;
+    position: fixed;
+    z-index: 0;
+    right: 0;
+    top: -150vw;
+    width: 35%;
+    padding: 10em 5em;
+    border: 2px solid black;
+}
+
+
+#header__div-3 p {
+    font-size: 2rem;
+    color: white;
+    padding-top: 1em;
+    border-bottom: 2px solid black;
+}
+
+#header__div-2-btn {
+    margin-top: 1em;
+    padding: .5em;
+    color: teal;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+
+/*-------HOVER-EFFECTS FOR HEADER ELEMENTS---------*/
+
+#header__img:hover {
+    border: 2px solid turquoise;
+}
+
+#header__p:hover {
+    border: 2px solid turquoise;
+}
+
+#header__div-2-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/*--------ANIMATIONS FOR HEADER ELEMENTS-------*/
+/*ANIMATIONS ARE ADDED WITH FUNCTION IN JS SCRIPT*/
+
+/*SHOW ICON WHEN BUTTON PRESSED*/
+
+.iconAnimated {
+    animation: visible 2s ease-in 1s forwards;
+}
+
+@keyframes visible {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+/*ICON PULSING*/
+
+.iconPulse {
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    0%{box-shadow: 0px 0px 5px 1px rgb(0, 168, 168);}
+    50%{box-shadow: 0px 0px 10px 5px rgba(0, 168, 168, 0.73);}
+    100%{box-shadow: 0px 0px 5px 1px rgb(0, 168, 168);}
+}
+
+/*ACTIVATES WHEN 150 MINS ACHEIVED*/
+
+.minutesAcheived {
+    animation: minutesGold 2s ease forwards;
+}
+
+@keyframes minutesGold {
+    0% {
+        background-color: teal;
+        
+    }
+    50%{
+        background-color: gold;
+        width: 4em;
+        height: 4em;
+    }
+
+    100% {
+        color: black;
+        background-color: gold;
+        width: 3.5em;
+        height: 3.5em;
+    }
+}
+
+
+/*"AKTIVITETSSPLAN" APPEARS WHEN SITE LOADED*/
+
+.myPlanAnimated {
+    width: 60vw;
+    animation: showPlan 2s ease 1s forwards;
+}
+
+@keyframes showPlan {
+    from {top: -150vw;}
+    to {top: 0vh;}
+}
+
+
+/*======================================FOOTER======================*/
+
+
+
+#footer__button {
+    display: none;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5em;
+    padding: 1em;
+    background-color: turquoise;
+    border: none;
+    cursor: pointer;
+}
+
+/*HOVER-EFFECTS FOR FOOTER ELEMENTS*/
+
+#footer__button:hover {
+    background-color: teal;
+    color: white;
+}

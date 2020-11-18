@@ -1,0 +1,137 @@
+
+/*===============GLOBAL RESPONSIVITY===========================*/
+
+/*===============HEADER FOOTER RESPONSIVITY=======================*/
+
+/*"AKTIVITETSPROGRAM OG IKON*/
+
+@media only screen and (max-width: 950px) {
+    #header__div-2 {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    #header__div-2 {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .icon {
+        width: 4em;
+        margin-left: 1em;
+        justify-self: end;
+    }
+}
+
+/*===============MAIN-PAGE RESPONSIVITY===========================*/
+
+@media only screen and (max-width: 950px) { 
+    #main-page__div {
+        width: 90%;
+        max-width: 900px;
+    }
+
+    #main-page__div h1 {
+        font-size: 2.3rem;
+        line-height: 1em;
+        text-align: left;
+        padding: .3em 0;
+    }
+
+    .main-page__introBtn {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 360px){
+    
+    #headLine {
+        font-size: 2.6rem;
+        text-align: center;
+    }
+
+    #mainPage {
+        height: 300vh;
+    }
+
+    #intro h1 {
+        padding-top: 0em;
+    }
+
+    .introBtn {
+        padding: .2em;
+    }
+}
+
+/*===============CONTAINER RESPONSIVITY===========================*/
+
+
+
+/*EXPANDED ARTICLES IN CONTAINER GRID*/
+
+@media only screen and (max-width: 950px){
+    
+
+    .expand img {
+        display: none;
+    }
+    
+    .expand {
+        grid-column: 1 / span 2;
+        grid-row: span 1;
+        min-height: 500px;
+        max-width: 600px;
+    }
+
+    .expand article {
+        height: 100%;
+        min-height: 550px;
+        width: 90%;
+    }
+    
+    .expand h3 {
+        margin-top: 1em;
+    }
+
+    .expand ul {
+        margin-top: 1em;
+    }
+    
+}
+
+@media only screen and (max-width: 360px){
+    
+
+    .expand img {
+        display: none;
+    }
+    
+    .expand {
+        grid-column: 1;
+        grid-row: span 1;
+        min-height: 500px;
+        max-width: 450px;
+    }
+
+    .expand article {
+        height: 100%;
+        width: 90%;
+    }
+    
+    .expand h3 {
+        margin-top: 1em;
+        font-size: 1.5rem;
+    }
+
+    .expand ul {
+        margin-top: 1em;
+        font-size: 1.5rem;
+    }
+    .expand article {
+        height: 100%;
+    }
+}

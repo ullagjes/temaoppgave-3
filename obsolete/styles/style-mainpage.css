@@ -57,9 +57,7 @@
 /*RESPONSIVITET INTRO*/
 
 @media only screen and (max-width: 950px) {
-    #mainPage {
-        max-height: 400px;
-    }
+
     
     #intro {
         width: 90%;
@@ -68,10 +66,9 @@
 
     #intro h1 {
         font-size: 2.3rem;
-        line-height: 1.4em;
+        line-height: 1.2em;
         text-align: left;
-        padding: .5em 0;
-        border-bottom: 2px solid teal;
+        padding: .7em 0;
     }
 
     .introBtn {
@@ -80,10 +77,27 @@
     }
 }
 
-@media only screen and (max-width: 330px){
-    #mainPage {
-        max-height: 100px;
+@media only screen and (max-width: 360px){
+    
+    #headLine {
+        font-size: 2.6rem;
+        text-align: center;
     }
+
+    #mainPage {
+        height: 250vh;
+    }
+
+    #intro h1 {
+        padding-top: 1em;
+    }
+
+    .introBtn {
+        width: 100%;
+        border: 5px solid teal;
+        padding: .2em;
+    }
+
     
 }
 
@@ -215,6 +229,7 @@ label {
 }
 
 /*ANIMASJON FOR NY ØVELSE LAGT TIL*/
+
 .utvidPlanknapp{
     animation: expand 1s ease alternate;
     animation-iteration-count: 1;
@@ -243,15 +258,16 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;    
-    z-index: 1;
+    z-index: 0;
+    right: 0;
     top: -150vw;
-    width: 40%;
+    width: 35%;
     padding-bottom: 3.5em;
 }
 
-/*.myPlanAnimated {
+.myPlanAnimated {
     width: 60vw;
-    height: 40vh;
+    height: 55vh;
     animation: showPlan 2s ease 2s forwards;
 }
 
@@ -262,9 +278,9 @@ label {
 
 .myPlanAnimated p {
     font-size: 2rem;
-    padding: 5em;
+    padding: 4em;
     color: white;
-}*/ 
+} 
 
 
 

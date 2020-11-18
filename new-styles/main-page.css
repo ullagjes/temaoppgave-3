@@ -1,0 +1,187 @@
+/*=========================INTRODUCTION AND FILTER BUTTONS====================*/
+
+/*INTRODUCTORY TEXT AND BUTTON FOR ANIMATION INITIATION*/
+
+#main-page {
+    height: 70vh;
+    width: 90vw;
+    max-height: 500px;
+    max-width: 1200px;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    background-color: white;
+}
+
+#main-page__div {
+    width: 90%;
+    height: 100%;
+    max-height: 90vh;
+    padding-top: 9em;
+    margin: 5em auto;
+    max-width: 1000px;
+    
+}
+
+#main-page__div h1 {
+    font-size: 2.5rem;
+    line-height: 2em;
+    text-align: center;
+    width: 90%
+}
+
+.main-page__introBtn {
+    border: 4px solid teal;
+    background-color: white;
+    margin-bottom: 3em;
+    margin-top: 1.5em;
+    margin-left: 8em;
+    font-size: 2.5rem;
+    width: 20em;
+    cursor: pointer;
+    transition: .5s;
+    animation: pulse;
+}
+
+/*BUTTONS FOR FILTER CHOICES*/
+
+#main-page__button, #main-page__button-2 {
+    opacity: 0%;
+    display: none;
+    font-size: 2rem;
+    max-width: 300px;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+    border: 3px solid teal;
+    background-color:white;
+}
+
+#main-page__button a {
+    text-decoration: none;
+}
+
+/*=========================================FORMS==============*/
+
+#div__formContainer {
+    display: flex;
+}
+
+#main-page__form, #main-page__form-2 {
+    z-index: 0;
+    display: none;
+    animation: filterWiden;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    margin: .5em;
+    padding: 2.5em;
+    border: 3px solid teal;
+    border-radius: 20px;
+}
+
+.main-page__form-h2, .main-page__form-2-h2 {
+    font-size: 3rem;
+}
+
+
+label {
+    font-size: 2.5rem;
+    margin: 1em;
+}
+
+#main-page__form-2-btn {
+    display: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: .2em;
+    margin-top: 1em;
+    width: 30%;
+    border-radius: 20px;
+    background-color: white;
+    border: 3px solid teal;
+}
+
+
+/*========================HOVER EFFECTS FOR MAINPAGE SECTION=============*/
+
+#main-page__button:hover{
+    background-color: teal;
+    color: white;;
+}
+
+#main-page__button-2:hover{
+    background-color: teal;
+    color: white;
+}
+
+.main-page__introBtn:hover {
+    background-color: teal;
+    color: white;
+    width: 21em;
+}
+
+#main-page__form-btn:hover {
+    background-color: teal;
+    color: white;
+}
+
+#main-page__form-2-btn:hover {
+    background-color: teal;
+    color: white;
+}
+
+/*==========================ANIMATIONS FOR MAINPAGE SECTION=============*/
+/*Animations are attached to classes added to elements in js-script*/
+
+/*INTRODUCTIONTEXT APPEAR*/
+
+.introAnimated {
+    animation: disappear 1.5s ease forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 100%;
+        height: 100%;
+    }
+    
+    100% {
+        font-size: 0;
+        opacity: 0%;
+        height: 0%;
+    }
+}
+
+/*FILTERBUTTONS APPEAR*/
+
+.btnAnimated {
+    
+    animation: btnAppear 2s ease 1s forwards;
+}
+
+@keyframes btnAppear {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+/*FILTEROPTIONS APPEAR*/
+
+@keyframes filterWiden {
+    0% {
+        display: none;
+        opacity: 0%;
+    }
+
+    100%{
+        display: block;
+        opacity: 100%;
+    }
+}

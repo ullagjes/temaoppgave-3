@@ -48,8 +48,8 @@ function startAnimation() {
     settSammenProgram.classList.add("btnAnimated")
     planIcon.classList.add("iconPulse")
     planKnapp.classList.add("iconAnimated")
-    //myPlanContainer.classList.add("myPlanAnimated")
-    //myPlanContainer.innerHTML = `<p>Her har du oversikt over alle aktiviteter du har planlagt denne uka. Greier du 150 minutter til sammen?</p>`
+    myPlanContainer.classList.add("myPlanAnimated")
+    myPlanContainer.innerHTML = `<p>Her finner du oversikt over alle aktiviteter du har planlagt denne uka. Greier du 150 minutter til sammen?</p>`
 }
 
 textStartAnimation.addEventListener("click", startAnimation)
