@@ -1,9 +1,7 @@
 
-/*===============GLOBAL RESPONSIVITY===========================*/
-
 /*===============HEADER FOOTER RESPONSIVITY=======================*/
 
-/*"AKTIVITETSPROGRAM OG IKON*/
+/*"AKTIVITETSPROGRAM AND IKON*/
 
 @media only screen and (max-width: 950px) {
     #header__div-2 {
@@ -13,6 +11,9 @@
 }
 
 @media only screen and (max-width: 360px) {
+    #header__h1 {
+        font-size: 2.5rem;
+    }
     #header__div-2 {
         width: 100%;
         max-width: 330px;
@@ -45,9 +46,32 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    #main-page__form-2-btn {
+        width: 70%;
+    }
+
+    @keyframes buttonLoading {
+        0%{
+            width: 0%;
+            opacity: 100%;
+        }
+    
+        90% {
+            opacity: 100%;
+        }
+    
+        99% {
+            width: 69%;
+        }
+        100%{
+            width: 0%;
+            opacity: 0%;
+        }
+    }
 }
 
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 500px){
     
     #headLine {
         font-size: 2.6rem;
@@ -55,27 +79,48 @@
     }
 
     #mainPage {
-        height: 300vh;
+        height: 500vh;
     }
 
-    #intro h1 {
-        padding-top: 0em;
+    #main-page__div {
+        padding-top: 2em;
     }
 
-    .introBtn {
-        padding: .2em;
+    #main-page__div h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-page__introBtn {
+        padding: .7em;
+        max-width: 400px;
+        width: 100%;
+        margin: 0;
+        
+    }
+
+    #main-page__button, #main-page__button-2 {
+        max-width: 250px;
+    }
+    
+
+    #div__formContainer{
+        flex-flow: column;
+    }
+
+    #main-page__form, #main-page__form-2 {
+        padding: 1em;
+    }
+
+    #main-page__form-2-btn {
+        width: 70%;
     }
 }
 
 /*===============CONTAINER RESPONSIVITY===========================*/
 
-
-
 /*EXPANDED ARTICLES IN CONTAINER GRID*/
 
 @media only screen and (max-width: 950px){
-    
-
     .expand img {
         display: none;
     }
@@ -100,15 +145,10 @@
     .expand ul {
         margin-top: 1em;
     }
-    
 }
 
 @media only screen and (max-width: 360px){
-    
-
-    .expand img {
-        display: none;
-    }
+    .expand img {display: none;}
     
     .expand {
         grid-column: 1;
@@ -131,7 +171,5 @@
         margin-top: 1em;
         font-size: 1.5rem;
     }
-    .expand article {
-        height: 100%;
-    }
+    .expand article {height: 100%;}
 }

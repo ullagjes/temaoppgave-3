@@ -4,10 +4,12 @@ import {exercises} from "./exercise-array.js";
 //--------------SHOW ALL EXERCISES---------------------//
 
 let container = document.querySelector("#container");
-    
+
+//FIRST FUNCTION CREATES HTML FOR EACH OBJECT IN ARRAY
+
 function showExercises(isFiltered) {
     let html = ``;
-    let array = exercises
+    let array = exercises;
     if(isFiltered)
         array = newExercises;
 
@@ -32,15 +34,15 @@ function showExercises(isFiltered) {
     
 }
 
+//FUNCTION FILLS IN HTML FOR ALL OBJECTS IN EXERCISE-ARRAY
 function showUnfilteredExercises() {
-    container.innerHTML = showExercises(false)
+    container.innerHTML = showExercises(false);
     
-    let addExpandBtns = document.querySelectorAll(".container__article-button2")
-    for(let addExpandBtn of addExpandBtns){addExpandBtn.addEventListener("click", expandImage)}
+    let addExpandBtns = document.querySelectorAll(".container__article-button2");
+    for(let addExpandBtn of addExpandBtns){addExpandBtn.addEventListener("click", expandImage)};
 
     let addToPlanBtns = document.querySelectorAll(".container__article-button1");
-    for(let addToPlanBtn of addToPlanBtns){addToPlanBtn.addEventListener("click", addToPlan)}   
-    
+    for(let addToPlanBtn of addToPlanBtns){addToPlanBtn.addEventListener("click", addToPlan)};  
 }
 
 let showAllExercises = document.querySelector("#main-page__button");
@@ -54,24 +56,25 @@ let introText = document.querySelector("#main-page__div");
 let planIcon = document.querySelector("#header__img");
 let planBtn = document.querySelector("#header__div");
 let myPlanContainer = document.querySelector("#header__div-2");
-let myPlanInnerContainer = document.querySelector("#header__div-3")
+let myPlanInnerContainer = document.querySelector("#header__div-3");
 
 function startAnimation() {
     showFilterBtn.style.display = "block";
     showAllExercises.style.display = "inline-block";
-    introText.classList.add("introAnimated")
-    showFilterBtn.classList.add("btnAnimated")
-    showAllExercises.classList.add("btnAnimated")
-    planIcon.classList.add("iconPulse")
-    planBtn.classList.add("iconAnimated")
-    myPlanContainer.classList.add("myPlanAnimated")
+    introText.classList.add("introAnimated");
+    showFilterBtn.classList.add("btnAnimated");
+    showAllExercises.classList.add("btnAnimated");
+    planIcon.classList.add("iconPulse");
+    planBtn.classList.add("iconAnimated");
+    myPlanContainer.classList.add("myPlanAnimated");
     planIsPressed = true;
 }
 
-textStartAnimation.addEventListener("click", startAnimation)
+textStartAnimation.addEventListener("click", startAnimation);
 
 
 //------------------ALLOW USER TO FIND MORE INFO ON ACTIVITY------------------//
+
 let imageIsExpanded = false;
 
 function expandImage (event) {
@@ -174,17 +177,16 @@ planBtn.addEventListener("keypress", function (e) {
     }
 });
 
-
 //-------------FILTERING EXERCISE ARRAY--------------------//
 
-
 let applySecondFilter = document.querySelector("#main-page__form-2-btn");
-let impact1 = document.querySelector("#Lav")
-let impact2 = document.querySelector("#Medium")
-let impact3 = document.querySelector("#Høy")
-let effekt1 = document.querySelector("#Kondisjon")
-let effekt2 = document.querySelector("#Styrke")
-let effekt3 = document.querySelector("#Mobilitet")
+let loadBar = document.querySelector("#loadBar");
+let impact1 = document.querySelector("#Lav");
+let impact2 = document.querySelector("#Medium");
+let impact3 = document.querySelector("#Høy");
+let effekt1 = document.querySelector("#Kondisjon");
+let effekt2 = document.querySelector("#Styrke");
+let effekt3 = document.querySelector("#Mobilitet");
 let newExercises = ``;
 
 impact1.addEventListener("click", filterExercises);
@@ -203,10 +205,6 @@ function filterExercises(event) {
         newExercises = filterFirst
     }    
 
-    //effekt1.addEventListener("click", visFiltrerte)
-    //effekt2.addEventListener("click", visFiltrerte)
-    //effekt3.addEventListener("click", visFiltrerte)
-
     function filter2(event){
         
         let myFilter2 = event.target.id;
@@ -217,6 +215,11 @@ function filterExercises(event) {
         if(effekt1.checked == true || effekt2.checked == true || effekt3.checked == true){
             newExercises = filteredAgain;
         }
+        
+        loadBar.style.display = "block"
+        loadBar.classList.add("showActivitiesAnimation");
+        applySecondFilter.classList.add("showTextAnimation");
+        applySecondFilter.style.display = "block";
         
     } 
 
@@ -236,7 +239,6 @@ function showFilterOptions(){
         textStartAnimation.style.display = "none";
         showAllExercises.style.display = "none";
         showFilterBtn.style.display = "none";
-        applySecondFilter.style.display = "block";
         filterByImpact.style.display = "block"
         filterByImpact.style.transition = "1s"
         filterbyEffect.style.display = "block";
@@ -248,9 +250,11 @@ applySecondFilter.addEventListener("click", visFiltrerte)
 
 //-----------------------SHOW USER PERSONALISED ARRAY--------------------//
 
+
 function visFiltrerte() {
     mainPage.style.display = "none"
     container.innerHTML = showExercises(true);
+
 
     resetBtn.style.display = "inline-block";
     let addExpandBtns = document.querySelectorAll(".container__article-button2")
@@ -263,6 +267,7 @@ function visFiltrerte() {
 
 //--------------RESTART FRONTPAGE AFTER FILTERING----------------//
 function resetPage(){
+    loadBar.style.display = "none";
     mainPage.style.display = "flex";
     showFilterBtn.style.display = "block"
     showAllExercises.style.display = "inline-block";
@@ -366,3 +371,7 @@ container.innerHTML = html;*/
 //impact1.addEventListener("click", filterFurther)
 //impact2.addEventListener("click", filterFurther)
 //impact3.addEventListener("click", filterFurther)
+
+//effekt1.addEventListener("click", visFiltrerte)
+    //effekt2.addEventListener("click", visFiltrerte)
+    //effekt3.addEventListener("click", visFiltrerte)

@@ -3,44 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new-styles/global.css">
-    <link rel="stylesheet" href="./new-styles/header-footer.css">
-    <link rel="stylesheet" href="./new-styles/main-page.css">
-    <link rel="stylesheet" href="./new-styles/container.css">
-    <link rel="stylesheet" href="./new-styles/responsivity.css">
-    <script src="./new-scripts/main.js" type="module"></script>
-
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/header-footer.css">
+    <link rel="stylesheet" href="./styles/main-page.css">
+    <link rel="stylesheet" href="./styles/container.css">
+    <link rel="stylesheet" href="./styles/responsivity.css">
+    <script src="./scripts/main.js" type="module"></script>
     <title>Aktivitetsplan</title>   
 </head>
 <body>
+    <!--GLOBAL STYLING OF PAGE IN GLOBAL.CSS-->
+    <!--RESPONSIVITY FOR ALL ELEMENTS IN BODY IS STYLED IN RESPONSIVITY.CSS-->
+    <!--HEADER 
+        *CONTAINS ICON AND HEADLINE. 
+        *ALL HEADER ELEMENTS ARE STYLED IN HEADER-FOOTER.CSS.
+    -->
     <header>
         <h1 id="header__h1">Lag din egen aktivitetsplan</h1>
+        <!--ICON AND MINUTE COUNTER FRONT PAGE-->
         <div id="header__div">
+            <!--#HEADER__P IS UPDATED WITH MINUTES WITH JS-->
             <p id="header__p">0 min.</p>
-            
             <img src="./img/icons/runner-icon-still.png" alt="ikon av noen som løper. Trykker du på ikonet dukker aktivitetsplanen din opp." id="header__img" tabindex="1">   
         </div>
+        <!--"AKTIVITETSPLAN" APPEARS WHEN ICON IS PRESSED-->
         <div id="header__div-2">
-            <div id="header__div-3"><p>Her finner du oversikt over alle aktiviteter du har planlagt denne uka. Greier du 150 minutter til sammen?</p></div>
+            <div id="header__div-3">
+                <p>Her finner du oversikt over alle aktiviteter du har planlagt denne uka. Greier du 150 minutter til sammen?</p>
+            </div>
+            <!--EMPTY P-ELEMENT
+                *WHEN USER ADDS ACITIVITY TO PLAN, MINUTES APPEAR IN THIS ELEMENT.
+                *MINUTES ARE ADDED WITH JS.
+            -->
             <p id="myInnerMinutes"></p>
             <button id="header__div-2-btn">Lukk vindu</button>
         </div>
     </header>
     <main>
+        <!--MAINPAGE 
+            *CONTAINS BUTTON THAT LEADS USER TO TWO NEW OPTIONS FOR FURTHER NAVIGATION
+            *ALL ELEMENTS IN MAIN-PAGE ARE STYLED IN MAIN-PAGE.CSS.
+        -->
         <section id="main-page">
             <div id="main-page__div">
                 <h1>Alle friske voksne burde være i aktivitet i minst 150 minutter i uka.</h1><br>
                 <h1>En aktivitetsplan kan hjelpe deg å være i nok aktivitet hver uke.</h1><br>
-                <button class="main-page__introBtn"><h1 id="main-page__div-h1">Sett sammen din personlige aktivitetsplan her</h1></button>
+                <button class="main-page__introBtn">
+                    <h1 id="main-page__div-h1">Sett sammen din personlige aktivitetsplan her</h1>
+                </button>
             </div>
-            <a href="#container" alt="lenken fører lenger ned på siden hvor alle aktivitetene vises." tabindex="-1"><button id="main-page__button">Se gjennom aktivitetene du kan legge til programmet ditt</button></a>
+
+            <!--BUTTONS BELOW APPEAR THROUGH ANIMATION ADDED WITH JS.--> 
+
+            <!--FIRST BUTTON SHOWS ALL ACTIVITIES.-->
+
+            <a href="#container" alt="lenken fører lenger ned på siden hvor alle aktivitetene vises." tabindex="-1">
+                <button id="main-page__button">Se gjennom aktivitetene du kan legge til programmet ditt</button>
+            </a>
+            
+            <!--SECOND BUTTON SHOWS THE FORMS CONTAINING FILTERING OPTIONS BELOW. 
+                *THE FORMS ARE CONNECTED TO ARRAY FILTERING FUNCTIONS IN JS.
+            -->
             <button id="main-page__button-2">Få aktiviteter tilpasset ditt nivå</button>
+
+            <!--DIV CONTAINS TWO FORMS. APPEARS WITH ANIMATION ADDED IN JS-->
             <div id="div__formContainer">
+
+                <!--FIRST FORM CONTAINS FIRST SET OF FILTERING OPTIONS-->
                 <form id="main-page__form">
                 <h2 class="main-page__form-h2">Hvor tungt vil du trene?</h2>
-                
                 <input type="radio" id="Lav" name="impact" value="Intensitet">
                 <label for="Lav">Lett</label><br>
                 <input type="radio" id="Medium" name="impact" value="Intensitet">
@@ -49,6 +81,7 @@
                 <label for="Høy">Skikkelig tungt</label><br>
                 </form>
 
+                <!--SECOND FORM CONTAINS SECOND SET OF FILTERING OPTIONS. WHEN BOTH FORMS ARE FILLED OUT ARRAY IS FILTERED ACCORDINGLY-->
                 <form id="main-page__form-2">
                     <h2 class="main-page__form-2-h2">Hva ønsker du å trene på?</h2>
                     <input type="radio" id="Kondisjon" name="effect" value="Treningstype">
@@ -57,18 +90,27 @@
                     <label for="Styrke">Styrke</label><br>
                     <input type="radio" id="Mobilitet" name="effect" value="Treningstype">
                     <label for="Mobilitet">Mobilitet</label><br>
-                    
                 </form>
-            </div>
-            
-            <input type="button" id="main-page__form-2-btn" value="Vis utvalgte aktiviteter"></input>
-            
+            </div>  
+
+            <!--BUTTON ACTIVATES NEW FUNCTION IN JS, SHOWING USER FILTERED OPTIONS HE/SHE CAN CHOOSE FROM-->
+            <input type="button" id="main-page__form-2-btn" value="Vis utvalgte aktiviteter"><div id="loadBar"></div></input>     
         </section>
 
+        <!--CONTAINER
+            *EMPTY SECTION. FILLED WITH HTML THROUGH JS FUNCTIONS.
+            *ALL ELEMENTS IN CONTAINER-SECTION IS STYLED IN CONTAINER.CSS.
+        -->
         <section id="container"></section>
     </main>
+    <!--FOOTER
+        *CONTAINS BUTTON ALLOWING USER TO RESET FILTERING OPTIONS. BUTTON APPEARS WITH FUNCTION IN JS.
+        *ALL ELEMENTS IN FOOTER IS STYLED IN HEADER-FOOTER.CSS.
+    -->
     <footer>
-        <a href="#main-page" alt="lenken fører til toppen av forsiden hvor du kan velge alternativer på nytt" tabindex="-1"><button id="footer__button">Fant du ikke det du var ute etter? Få hjelp til å finne øvelsene som passer perfekt for deg</button></a>
+        <a href="#main-page" alt="lenken fører til toppen av forsiden hvor du kan velge alternativer på nytt" tabindex="-1">
+            <button id="footer__button">Fant du ikke det du var ute etter? Få hjelp til å finne øvelsene som passer perfekt for deg</button>
+        </a>
     </footer>
 </body>
 </html>

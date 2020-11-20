@@ -8,6 +8,7 @@
     margin-right: auto;
     margin-left: .5em;
     padding: .2em;
+    color: white;
 }
 
 /*--------------ICON AND MINUTE COUNTER-------------*/
@@ -57,11 +58,10 @@
     padding-top: 3em;
 }
 
-
 /*-------------"AKTIVITETSPROGRAM"-CONTAINER-------------*/
 
 #header__div-2 {
-    background-color: teal;
+    background-color: rgb(0, 128, 128, 0.9);
     position: fixed;
     z-index: 0;
     right: 0;
@@ -71,10 +71,10 @@
     border: 2px solid black;
 }
 
-
 #header__div-3 p {
     font-size: 2rem;
     color: white;
+    font-weight: 700;
     padding-top: 1em;
     border-bottom: 2px solid black;
 }
@@ -90,14 +90,9 @@
     cursor: pointer;
 }
 
-
 /*-------HOVER-EFFECTS FOR HEADER ELEMENTS---------*/
 
-#header__img:hover {
-    border: 2px solid turquoise;
-}
-
-#header__p:hover {
+#header__img:hover, #header__p:hover {
     border: 2px solid turquoise;
 }
 
@@ -122,27 +117,21 @@
 
 /*ICON PULSING*/
 
-.iconPulse {
-    animation: pulse 5s infinite;
-}
+.iconPulse {animation: pulse 5s infinite;}
 
 @keyframes pulse {
-    0%{box-shadow: 0px 0px 5px 1px rgb(0, 168, 168);}
+    0%{box-shadow: 0px 0px 5px 1px rgb(0, 247, 247);}
     50%{box-shadow: 0px 0px 10px 5px rgba(0, 168, 168, 0.73);}
-    100%{box-shadow: 0px 0px 5px 1px rgb(0, 168, 168);}
+    100%{box-shadow: 0px 0px 5px 1px rgb(0, 247, 247);}
 }
 
 /*ACTIVATES WHEN 150 MINS ACHEIVED*/
 
-.minutesAcheived {
-    animation: minutesGold 2s ease forwards;
-}
+.minutesAcheived {animation: minutesGold 2s ease forwards;}
 
 @keyframes minutesGold {
-    0% {
-        background-color: teal;
-        
-    }
+    0% {background-color: teal;}
+
     50%{
         background-color: gold;
         width: 4em;
@@ -170,10 +159,7 @@
     to {top: 0vh;}
 }
 
-
 /*======================================FOOTER======================*/
-
-
 
 #footer__button {
     display: none;
@@ -181,8 +167,9 @@
     font-weight: 700;
     margin-bottom: 5em;
     padding: 1em;
-    background-color: turquoise;
-    border: none;
+    background-color: white;
+    border: 3px solid teal;
+    border-radius: 25px;
     cursor: pointer;
 }
 
