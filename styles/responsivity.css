@@ -10,13 +10,17 @@
     }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 500px) {
     #header__h1 {
         font-size: 2.5rem;
     }
     #header__div-2 {
+        background-color: teal;
         width: 100%;
-        max-width: 330px;
+    }
+
+    #header__div-3 p {
+        font-size: 2.5rem;
     }
 
     .icon {
@@ -29,9 +33,15 @@
 /*===============MAIN-PAGE RESPONSIVITY===========================*/
 
 @media only screen and (max-width: 950px) { 
+    
+    #main-page {
+        height: 80vh;
+    }
+    
     #main-page__div {
         width: 90%;
         max-width: 900px;
+        padding-top: 1em;
     }
 
     #main-page__div h1 {
@@ -78,49 +88,49 @@
         text-align: center;
     }
 
-    #mainPage {
-        height: 500vh;
-    }
+    #mainPage {height: 100%;}
 
-    #main-page__div {
-        padding-top: 2em;
-    }
+    #main-page__div {padding-top: 2em;}
 
-    #main-page__div h1 {
-        font-size: 2.5rem;
-    }
+    #main-page__div h1 {font-size: 2.5rem;}
 
     .main-page__introBtn {
         padding: .7em;
         max-width: 400px;
         width: 100%;
-        margin: 0;
-        
+        margin-top: 2em;   
     }
 
     #main-page__button, #main-page__button-2 {
-        max-width: 250px;
-    }
-    
-
-    #div__formContainer{
-        flex-flow: column;
+        max-width: 300px;
+        font-size: 3rem;
+        padding: 1em;
+        margin-top: 1em;
     }
 
     #main-page__form, #main-page__form-2 {
-        padding: 1em;
+        margin-top: 2em;
+        padding: 2em 1em;
     }
 
     #main-page__form-2-btn {
+        margin-top: 0;
+        font-size: 2.5rem;
         width: 70%;
     }
 }
 
 /*===============CONTAINER RESPONSIVITY===========================*/
 
-/*EXPANDED ARTICLES IN CONTAINER GRID*/
 
 @media only screen and (max-width: 950px){
+
+    #container {
+        max-height: 3000px;
+        min-height: 300px;
+        gap: 5px;
+    }
+
     .expand img {
         display: none;
     }
@@ -128,7 +138,7 @@
     .expand {
         grid-column: 1 / span 2;
         grid-row: span 1;
-        min-height: 500px;
+        min-height: 600px;
         max-width: 600px;
     }
 
@@ -144,24 +154,23 @@
 
     .expand ul {
         margin-top: 1em;
+        font-weight: 500;
     }
 }
 
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 500px){
+    #container {max-height: 5000px;}
+    #container article {max-height: 400px;}
+
     .expand img {display: none;}
     
     .expand {
         grid-column: 1;
         grid-row: span 1;
-        min-height: 500px;
+
+        max-height: 800px;
         max-width: 450px;
     }
-
-    .expand article {
-        height: 100%;
-        width: 90%;
-    }
-    
     .expand h3 {
         margin-top: 1em;
         font-size: 1.5rem;
@@ -172,4 +181,20 @@
         font-size: 1.5rem;
     }
     .expand article {height: 100%;}
+    
+    #div__formContainer{
+        flex-flow: column;
+        height: 800px;
+    }
+
+    #filters {
+    flex-flow: column;
+    margin: 1em;
+    }
+
+    #filters p {font-size: 2.3rem;}
+
+    #filters div { margin: .3em 0;}
+
 }
+

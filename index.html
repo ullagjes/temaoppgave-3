@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,15 +49,13 @@
             <div id="main-page__div">
                 <h1>Alle friske voksne burde være i aktivitet i minst 150 minutter i uka.</h1><br>
                 <h1>En aktivitetsplan kan hjelpe deg å være i nok aktivitet hver uke.</h1><br>
-                <button class="main-page__introBtn">
-                    <h1 id="main-page__div-h1">Sett sammen din personlige aktivitetsplan her</h1>
-                </button>
+                <button class="main-page__introBtn">Sett sammen din personlige aktivitetsplan her</button>
             </div>
 
             <!--BUTTONS BELOW APPEAR THROUGH ANIMATION ADDED WITH JS.--> 
 
             <!--FIRST BUTTON SHOWS ALL ACTIVITIES.-->
-
+            
             <a href="#container" alt="lenken fører lenger ned på siden hvor alle aktivitetene vises." tabindex="-1">
                 <button id="main-page__button">Se gjennom aktivitetene du kan legge til programmet ditt</button>
             </a>
@@ -68,27 +66,27 @@
             <button id="main-page__button-2">Få aktiviteter tilpasset ditt nivå</button>
 
             <!--DIV CONTAINS TWO FORMS. APPEARS WITH ANIMATION ADDED IN JS-->
+            
             <div id="div__formContainer">
-
                 <!--FIRST FORM CONTAINS FIRST SET OF FILTERING OPTIONS-->
                 <form id="main-page__form">
                 <h2 class="main-page__form-h2">Hvor tungt vil du trene?</h2>
-                <input type="radio" id="Lav" name="impact" value="Intensitet">
+                <input type="radio" id="Lav" name="impact" value="Lett">
                 <label for="Lav">Lett</label><br>
-                <input type="radio" id="Medium" name="impact" value="Intensitet">
+                <input type="radio" id="Medium" name="impact" value="Ganske tungt">
                 <label for="Medium">Ganske tungt</label><br>
-                <input type="radio" id="Høy" name="impact" value="Intensitet">
+                <input type="radio" id="Høy" name="impact" value="Skikkelig tungt">
                 <label for="Høy">Skikkelig tungt</label><br>
                 </form>
 
                 <!--SECOND FORM CONTAINS SECOND SET OF FILTERING OPTIONS. WHEN BOTH FORMS ARE FILLED OUT ARRAY IS FILTERED ACCORDINGLY-->
                 <form id="main-page__form-2">
                     <h2 class="main-page__form-2-h2">Hva ønsker du å trene på?</h2>
-                    <input type="radio" id="Kondisjon" name="effect" value="Treningstype">
+                    <input type="radio" id="Kondisjon" name="effect" value="Kondisjon">
                     <label for="Kondisjon">Kondisjon</label><br>
-                    <input type="radio" id="Styrke" name="effect" value="Treningstype">
+                    <input type="radio" id="Styrke" name="effect" value="Styrke">
                     <label for="Styrke">Styrke</label><br>
-                    <input type="radio" id="Mobilitet" name="effect" value="Treningstype">
+                    <input type="radio" id="Mobilitet" name="effect" value="Mobilitet">
                     <label for="Mobilitet">Mobilitet</label><br>
                 </form>
             </div>  
@@ -101,6 +99,7 @@
             *EMPTY SECTION. FILLED WITH HTML THROUGH JS FUNCTIONS.
             *ALL ELEMENTS IN CONTAINER-SECTION IS STYLED IN CONTAINER.CSS.
         -->
+        <div id="filters"></div>
         <section id="container"></section>
     </main>
     <!--FOOTER
@@ -109,7 +108,7 @@
     -->
     <footer>
         <a href="#main-page" alt="lenken fører til toppen av forsiden hvor du kan velge alternativer på nytt" tabindex="-1">
-            <button id="footer__button">Fant du ikke det du var ute etter? Få hjelp til å finne øvelsene som passer perfekt for deg</button>
+            <button id="footer__button">Fant du ikke det du var ute etter? Prøv å filtrere etter andre kriterier her</button>
         </a>
     </footer>
 </body>

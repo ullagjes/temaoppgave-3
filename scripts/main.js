@@ -180,6 +180,7 @@ planBtn.addEventListener("keypress", function (e) {
 //-------------FILTERING EXERCISE ARRAY--------------------//
 
 let applySecondFilter = document.querySelector("#main-page__form-2-btn");
+let filterContainer = document.querySelector("#filters");
 let loadBar = document.querySelector("#loadBar");
 let impact1 = document.querySelector("#Lav");
 let impact2 = document.querySelector("#Medium");
@@ -194,8 +195,8 @@ impact2.addEventListener("click", filterExercises);
 impact3.addEventListener("click", filterExercises);
 
 function filterExercises(event) {
-    console.log(newExercises);
     let myFilter = event.target.id;
+    let findFilterValue = event.target.value;
 
     let filterFirst = exercises.filter((el) => {
         return el.impact.includes(myFilter)
@@ -206,8 +207,9 @@ function filterExercises(event) {
     }    
 
     function filter2(event){
-        
         let myFilter2 = event.target.id;
+        let findSecondFilterValue = event.target.value;
+
         let filteredAgain = newExercises.filter((el)=> {
             return el.effect.includes(myFilter2)}
         )
@@ -221,6 +223,9 @@ function filterExercises(event) {
         applySecondFilter.classList.add("showTextAnimation");
         applySecondFilter.style.display = "block";
         
+        //SHOW USER CHOSEN FILTERS
+        filterContainer.innerHTML = `<p>Foreslåtte aktiviteter som passer for følgende kriterier:</p><div>${findFilterValue}</div><div>${findSecondFilterValue}</div>`
+
     } 
 
     effekt1.addEventListener("click", filter2)
@@ -250,8 +255,8 @@ applySecondFilter.addEventListener("click", visFiltrerte)
 
 //-----------------------SHOW USER PERSONALISED ARRAY--------------------//
 
-
 function visFiltrerte() {
+    filterContainer.style.display = "flex";
     mainPage.style.display = "none"
     container.innerHTML = showExercises(true);
 
@@ -266,7 +271,17 @@ function visFiltrerte() {
 
 
 //--------------RESTART FRONTPAGE AFTER FILTERING----------------//
+
+
+
 function resetPage(){
+    impact1.checked = false;
+    impact2.checked = false;
+    impact3.checked = false;
+    effekt1.checked = false;
+    effekt2.checked = false;
+    effekt3.checked = false;
+    filterContainer.style.display = "none";
     loadBar.style.display = "none";
     mainPage.style.display = "flex";
     showFilterBtn.style.display = "block"
@@ -277,6 +292,7 @@ function resetPage(){
     textStartAnimation.style.display = "none";
     textStartAnimation.removeEventListener("click", startAnimation)
     textStartAnimation.addEventListener("click", resetFilter)
+    filterContainer.innerHTML = ``;
 }
 
 let resetBtn = document.querySelector("#footer__button")
@@ -289,10 +305,11 @@ resetBtn.addEventListener("keypress", function (e) {
 
 function resetFilter() {
     newExercises = ``;
-    showAllExercises.style.opacity = "100%"
+    showAllExercises.style.opacity = "100%";
     showAllExercises.style.display = "inline-block";
     showFilterBtn.style.display = "inline-block";
-    showFilterBtn.style.opacity = "100%"
+    showFilterBtn.style.opacity = "100%";
+    
 }
 
 /*let filterLav = exercises.filter(el => el.impact.includes(myFilter))
